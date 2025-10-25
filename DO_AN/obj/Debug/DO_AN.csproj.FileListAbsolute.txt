@@ -1,0 +1,10 @@
+C:\DO_AN_TIN_HOC\DO_AN\bin\Debug\DO_AN.exe.config
+C:\DO_AN_TIN_HOC\DO_AN\bin\Debug\DO_AN.exe
+C:\DO_AN_TIN_HOC\DO_AN\bin\Debug\DO_AN.pdb
+C:\DO_AN_TIN_HOC\DO_AN\obj\Debug\DO_AN.Form1.resources
+C:\DO_AN_TIN_HOC\DO_AN\obj\Debug\DO_AN.Properties.Resources.resources
+C:\DO_AN_TIN_HOC\DO_AN\obj\Debug\DO_AN.csproj.GenerateResource.cache
+C:\DO_AN_TIN_HOC\DO_AN\obj\Debug\DO_AN.csproj.CoreCompileInputs.cache
+C:\DO_AN_TIN_HOC\DO_AN\obj\Debug\DO_AN.exe
+C:\DO_AN_TIN_HOC\DO_AN\obj\Debug\DO_AN.pdb
+C:\DO_AN_TIN_HOC\DO_AN\obj\Debug\DO_AN.csproj.AssemblyReference.cache
