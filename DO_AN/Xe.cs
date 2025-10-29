@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DO_AN
 {
-    class Xe
+   public class Xe
     {
         public int Id { get; set; }
         public string Manufacturer { get; set; }
