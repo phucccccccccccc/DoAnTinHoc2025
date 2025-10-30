@@ -8,6 +8,8 @@ namespace DO_AN
     public partial class Form1 : Form
     {
         quanLyXe qlx = new quanLyXe();
+        AVLTree avl = new AVLTree();  // ✅ thêm cây AVL
+
         string path = Application.StartupPath + "\\car_sales_data.csv";
         List<Xe> dsXe = new List<Xe>();
 
@@ -55,7 +57,23 @@ namespace DO_AN
             }
         }
 
-     
+        private void btnHienThiAVL_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                List<Xe> ds = new List<Xe>();
+                avl.InOrder(avl.Root, ds);
+
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = ds;
+                MessageBox.Show("Hiển thị dữ liệu duyệt theo thứ tự InOrder (Cây AVL)");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi hiển thị cây AVL: " + ex.Message);
+            }
+        }
+    }
     }
 
-}

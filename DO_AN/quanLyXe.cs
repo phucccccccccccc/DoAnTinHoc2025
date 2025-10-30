@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DO_AN
 {
-    class quanLyXe
+     public class quanLyXe
     {
         public List<Xe> DocFileCSV(string path)
         {
