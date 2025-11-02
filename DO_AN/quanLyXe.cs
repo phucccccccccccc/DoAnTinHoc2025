@@ -39,7 +39,7 @@ namespace DO_AN
                     Fuel_type = parts[4],
                     Year_of_manufacture = int.Parse(parts[5]),
                     Mileage = int.Parse(parts[6]),
-                    Price = decimal.Parse(parts[7])
+                    Price = int.Parse(parts[7])
                 };
                 dsXe.Add(xe);
             }

@@ -15,7 +15,7 @@ namespace DO_AN
         public string Fuel_type { get; set; }
         public int Year_of_manufacture { get; set; }
         public int Mileage { get; set; }
-        public decimal Price { get; set; }
+        public int Price { get; set; }
     }
 
 }

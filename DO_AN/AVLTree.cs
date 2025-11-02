@@ -10,9 +10,28 @@ namespace DO_AN
     {
         public NodeAVL Root;
 
-        private int Height(NodeAVL n) => n?.Height ?? 0;
+        private int Height(NodeAVL n)
+        {
+                if (n == null)
+                    return 0;
+                else
+                    return n.Height;
+            
+        }
 
-        private int GetBalance(NodeAVL n) => n == null ? 0 : Height(n.Left) - Height(n.Right);
+        private int GetBalance(NodeAVL n)
+        {
+
+            if (n == null)
+            {
+                return 0; // Nếu nút rỗng thì hệ số cân bằng là 0
+            }
+            else
+            {
+                // Nếu có nút, lấy chiều cao nhánh trái trừ nhánh phải
+                return Height(n.Left) - Height(n.Right);
+            }
+        }
 
         private NodeAVL RotateRight(NodeAVL y)
         {
@@ -78,6 +97,42 @@ namespace DO_AN
 
             return node;
         }
+        public NodeAVL Insert1(NodeAVL node, Xe data)
+        {
+            if (node == null)
+                return new NodeAVL(data);
+
+            if (data.Price < node.Data.Price)
+                node.Left = Insert1(node.Left, data);
+            else if (data.Price > node.Data.Price)
+                node.Right = Insert1(node.Right, data);
+            else
+                return node; // Không chèn trùng Id
+
+            node.Height = 1 + Math.Max(Height(node.Left), Height(node.Right));
+            int balance = GetBalance(node);
+
+            // 4 trường hợp mất cân bằng
+            if (balance > 1 && data.Price < node.Left.Data.Price)
+                return RotateRight(node);
+
+            if (balance < -1 && data.Price > node.Right.Data.Price)
+                return RotateLeft(node);
+
+            if (balance > 1 && data.Price > node.Left.Data.Price)
+            {
+                node.Left = RotateLeft(node.Left);
+                return RotateRight(node);
+            }
+
+            if (balance < -1 && data.Price< node.Right.Data.Price)
+            {
+                node.Right = RotateRight(node.Right);
+                return RotateLeft(node);
+            }
+
+            return node;
+        }
 
         // Duyệt cây theo thứ tự giữa (In-Order)
         public void InOrder(NodeAVL node, List<Xe> ds)
@@ -88,6 +143,23 @@ namespace DO_AN
                 ds.Add(node.Data);
                 InOrder(node.Right, ds);
             }
+        }
+        public int GetTreeHeight()
+        {
+            return Height(Root);
+        }
+        public int CountLeaves(NodeAVL root)
+        {
+            if (root == null)
+                return 0;
+            if (root.Left == null && root.Right == null)
+                return 1;
+            return CountLeaves(root.Left) + CountLeaves(root.Right);
+        }
+
+        public int GetLeafCount()
+        {
+            return CountLeaves(Root);
         }
     }
 }
