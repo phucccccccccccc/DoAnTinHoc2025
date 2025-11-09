@@ -16,6 +16,8 @@ namespace DO_AN
         public NodeAVL(Xe data)
         {
             Data = data;
+            Left = null;
+            Right = null;
             Height = 1;
         }
     }

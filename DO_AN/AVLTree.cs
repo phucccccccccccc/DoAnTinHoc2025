@@ -24,33 +24,36 @@ namespace DO_AN
 
             if (n == null)
             {
-                return 0; // Nếu nút rỗng thì hệ số cân bằng là 0
+                return 0; 
             }
             else
             {
-                // Nếu có nút, lấy chiều cao nhánh trái trừ nhánh phải
                 return Height(n.Left) - Height(n.Right);
             }
         }
 
-        private NodeAVL RotateRight(NodeAVL y)
+        private NodeAVL RotateRight(NodeAVL x)
         {
-            var x = y.Left;
-            var T2 = x.Right;
+            if (x == null || x.Left == null)
+                return x;
+            NodeAVL y = x.Left;
+            NodeAVL T2 = y.Right;
 
-            x.Right = y;
-            y.Left = T2;
+            y.Right = x;
+            x.Left = T2;
 
-            y.Height = Math.Max(Height(y.Left), Height(y.Right)) + 1;
             x.Height = Math.Max(Height(x.Left), Height(x.Right)) + 1;
+            y.Height = Math.Max(Height(y.Left), Height(y.Right)) + 1;
 
-            return x;
+            return y;
         }
 
         private NodeAVL RotateLeft(NodeAVL x)
         {
-            var y = x.Right;
-            var T2 = y.Left;
+            if (x == null || x.Right== null)
+                return x;
+            NodeAVL y = x.Right;
+            NodeAVL T2 = y.Left;
 
             y.Left = x;
             x.Right = T2;

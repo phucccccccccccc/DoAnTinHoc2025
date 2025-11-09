@@ -36,11 +36,11 @@ namespace DO_AN
 
                 dsXe = (List<Xe>)dataGridView1.DataSource;
                 qlx.GhiFileCSV(path, dsXe);
-                MessageBox.Show("✅ Đã ghi file CSV thành công!\n" + Path.GetFullPath(path));
+                MessageBox.Show(" Đã ghi file CSV thành công!\n" + Path.GetFullPath(path));
             }
             catch (Exception ex)
             {
-                MessageBox.Show("❌ Lỗi khi ghi file CSV: " + ex.Message);
+                MessageBox.Show(" Lỗi khi ghi file CSV: " + ex.Message);
             }
         }
 
@@ -54,11 +54,11 @@ namespace DO_AN
 
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = ds;
-                MessageBox.Show("✅ Hiển thị dữ liệu duyệt theo thứ tự InOrder!");
+                MessageBox.Show(" Hiển thị dữ liệu duyệt theo thứ tự InOrder!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("❌ Lỗi khi hiển thị cây AVL: " + ex.Message);
+                MessageBox.Show(" Lỗi khi hiển thị cây AVL: " + ex.Message);
             }
         }
 
@@ -84,11 +84,11 @@ namespace DO_AN
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = dsXe;
 
-                MessageBox.Show("✅ Đã đọc file CSV !");
+                MessageBox.Show(" Đã đọc file CSV !");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("❌ Lỗi khi đọc file: " + ex.Message);
+                MessageBox.Show(" Lỗi khi đọc file: " + ex.Message);
             }
 
         }
