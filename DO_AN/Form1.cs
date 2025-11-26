@@ -13,6 +13,7 @@ namespace DO_AN
         string path = Application.StartupPath + "\\car_sales_data.csv";
         List<Xe> dsXe = new List<Xe>();
 
+
         public Form1()
         {
             InitializeComponent();
@@ -20,10 +21,6 @@ namespace DO_AN
         private void Form1_Load_1(object sender, EventArgs e)
         { }
 
-            // 🔘 Nút Đọc File
-     
-
-        // 🔘 Nút Ghi File
         private void btnGhiFile_Click_1(object sender, EventArgs e)
         {
             try
@@ -44,7 +41,7 @@ namespace DO_AN
             }
         }
 
-        // 🔘 Nút Hiển Thị Duyệt Cây (InOrder)
+        
         private void btnHienThiAVL_Click(object sender, EventArgs e)
         {
             try
@@ -62,7 +59,7 @@ namespace DO_AN
             }
         }
 
-        // 🔘 Nút Đo Chiều Cao Cây
+        
        
 
         private void btnDocFile_Click_1(object sender, EventArgs e)
@@ -76,9 +73,6 @@ namespace DO_AN
                 }
 
                 dsXe = qlx.DocFileCSV(path);
-  
-
-                // Xây cây AVL
 
 
                 dataGridView1.DataSource = null;
@@ -118,10 +112,34 @@ namespace DO_AN
         private void demLa_Click(object sender, EventArgs e)
         {
 
-            int leafCount = avl.GetLeafCount();
+            int leafCount = avl.soLa();
             MessageBox.Show(" Số lượng lá của cây AVL là: " + leafCount);
         }
 
-         
+        private void demTrai_Click(object sender, EventArgs e)
+        {
+            int count = avl.demLaLeft();
+            MessageBox.Show($"Tổng số node bên trái: {count}");
+        }
+
+        private void demPhai_Click(object sender, EventArgs e)
+        {
+            int count = avl.demLaRight();
+            MessageBox.Show($"Tổng số node bên phải: {count}");
+
+        }
+
+        private void find_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(txtPrice.Text, out int id))
+            {
+                string result = avl.FindPosition(id);
+                MessageBox.Show(result);
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập Id hợp lệ!");
+            }
+        }
     }
 }

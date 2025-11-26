@@ -37,10 +37,10 @@ namespace DO_AN
             if (x == null || x.Left == null)
                 return x;
             NodeAVL y = x.Left;
-            NodeAVL T2 = y.Right;
+            NodeAVL z = y.Right;
 
             y.Right = x;
-            x.Left = T2;
+            x.Left = z;
 
             x.Height = Math.Max(Height(x.Left), Height(x.Right)) + 1;
             y.Height = Math.Max(Height(y.Left), Height(y.Right)) + 1;
@@ -53,10 +53,10 @@ namespace DO_AN
             if (x == null || x.Right== null)
                 return x;
             NodeAVL y = x.Right;
-            NodeAVL T2 = y.Left;
+            NodeAVL z = y.Left;
 
             y.Left = x;
-            x.Right = T2;
+            x.Right = z;
 
             x.Height = Math.Max(Height(x.Left), Height(x.Right)) + 1;
             y.Height = Math.Max(Height(y.Left), Height(y.Right)) + 1;
@@ -74,12 +74,12 @@ namespace DO_AN
             else if (data.Id > node.Data.Id)
                 node.Right = Insert(node.Right, data);
             else
-                return node; // Không chèn trùng Id
+                return node; 
 
             node.Height = 1 + Math.Max(Height(node.Left), Height(node.Right));
             int balance = GetBalance(node);
 
-            // 4 trường hợp mất cân bằng
+            
             if (balance > 1 && data.Id < node.Left.Data.Id)
                 return RotateRight(node);
 
@@ -110,12 +110,12 @@ namespace DO_AN
             else if (data.Price > node.Data.Price)
                 node.Right = Insert1(node.Right, data);
             else
-                return node; // Không chèn trùng Id
+                return node; 
 
             node.Height = 1 + Math.Max(Height(node.Left), Height(node.Right));
             int balance = GetBalance(node);
 
-            // 4 trường hợp mất cân bằng
+            
             if (balance > 1 && data.Price < node.Left.Data.Price)
                 return RotateRight(node);
 
@@ -137,7 +137,6 @@ namespace DO_AN
             return node;
         }
 
-        // Duyệt cây theo thứ tự giữa (In-Order)
         public void InOrder(NodeAVL node, List<Xe> ds)
         {
             if (node != null)
@@ -151,18 +150,46 @@ namespace DO_AN
         {
             return Height(Root);
         }
-        public int CountLeaves(NodeAVL root)
+        public int demLa(NodeAVL root)
         {
             if (root == null)
                 return 0;
             if (root.Left == null && root.Right == null)
                 return 1;
-            return CountLeaves(root.Left) + CountLeaves(root.Right);
+            return demLa(root.Left) + demLa(root.Right);
         }
 
-        public int GetLeafCount()
+        public int soLa()
         {
-            return CountLeaves(Root);
+            return demLa(Root);
+        }
+        
+        public int demLaLeft()
+        {
+            if (Root == null || Root.Left == null)
+                return 0;
+            return demTongNode(Root.Left);
+        }
+
+        
+        public int demLaRight()
+        {
+            if (Root == null || Root.Right == null)
+                return 0;
+            return demTongNode(Root.Right);
+        }
+
+        private int demTongNode(NodeAVL node)
+        {
+            if (node == null)
+                return 0;
+            return 1 + demTongNode(node.Left) + demTongNode(node.Right);
+        }
+        public string FindPosition(int id)
+        {
+
+
+            return " ";
         }
     }
 }

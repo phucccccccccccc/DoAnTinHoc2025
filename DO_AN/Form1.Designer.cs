@@ -35,6 +35,10 @@ namespace DO_AN
             this.btnDoCaoCay = new System.Windows.Forms.Button();
             this.btnHienThiTheoGia = new System.Windows.Forms.Button();
             this.demLa = new System.Windows.Forms.Button();
+            this.demTrai = new System.Windows.Forms.Button();
+            this.demPhai = new System.Windows.Forms.Button();
+            this.find = new System.Windows.Forms.Button();
+            this.txtPrice = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,9 +74,9 @@ namespace DO_AN
             // 
             // btnDoCaoCay
             // 
-            this.btnDoCaoCay.Location = new System.Drawing.Point(496, 2);
+            this.btnDoCaoCay.Location = new System.Drawing.Point(330, 9);
             this.btnDoCaoCay.Name = "btnDoCaoCay";
-            this.btnDoCaoCay.Size = new System.Drawing.Size(195, 52);
+            this.btnDoCaoCay.Size = new System.Drawing.Size(106, 52);
             this.btnDoCaoCay.TabIndex = 4;
             this.btnDoCaoCay.Text = "Tính Độ Cao Cây";
             this.btnDoCaoCay.UseVisualStyleBackColor = true;
@@ -82,7 +86,7 @@ namespace DO_AN
             // 
             this.btnHienThiTheoGia.Location = new System.Drawing.Point(185, 2);
             this.btnHienThiTheoGia.Name = "btnHienThiTheoGia";
-            this.btnHienThiTheoGia.Size = new System.Drawing.Size(269, 66);
+            this.btnHienThiTheoGia.Size = new System.Drawing.Size(123, 66);
             this.btnHienThiTheoGia.TabIndex = 5;
             this.btnHienThiTheoGia.Text = "Duyệt Cây Theo Giá";
             this.btnHienThiTheoGia.UseVisualStyleBackColor = true;
@@ -90,19 +94,60 @@ namespace DO_AN
             // 
             // demLa
             // 
-            this.demLa.Location = new System.Drawing.Point(495, 75);
+            this.demLa.Location = new System.Drawing.Point(196, 76);
             this.demLa.Name = "demLa";
-            this.demLa.Size = new System.Drawing.Size(195, 56);
+            this.demLa.Size = new System.Drawing.Size(81, 56);
             this.demLa.TabIndex = 6;
             this.demLa.Text = "SO LÁ";
             this.demLa.UseVisualStyleBackColor = true;
             this.demLa.Click += new System.EventHandler(this.demLa_Click);
+            // 
+            // demTrai
+            // 
+            this.demTrai.Location = new System.Drawing.Point(463, 13);
+            this.demTrai.Name = "demTrai";
+            this.demTrai.Size = new System.Drawing.Size(85, 44);
+            this.demTrai.TabIndex = 7;
+            this.demTrai.Text = "Đếm số Node Trái";
+            this.demTrai.UseVisualStyleBackColor = true;
+            this.demTrai.Click += new System.EventHandler(this.demTrai_Click);
+            // 
+            // demPhai
+            // 
+            this.demPhai.Location = new System.Drawing.Point(463, 76);
+            this.demPhai.Name = "demPhai";
+            this.demPhai.Size = new System.Drawing.Size(100, 56);
+            this.demPhai.TabIndex = 8;
+            this.demPhai.Text = "Đếm số Node Phải";
+            this.demPhai.UseVisualStyleBackColor = true;
+            this.demPhai.Click += new System.EventHandler(this.demPhai_Click);
+            // 
+            // find
+            // 
+            this.find.Location = new System.Drawing.Point(760, 66);
+            this.find.Name = "find";
+            this.find.Size = new System.Drawing.Size(75, 23);
+            this.find.TabIndex = 9;
+            this.find.Text = "button1";
+            this.find.UseVisualStyleBackColor = true;
+            this.find.Click += new System.EventHandler(this.find_Click);
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.Location = new System.Drawing.Point(626, 62);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(100, 22);
+            this.txtPrice.TabIndex = 10;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(925, 534);
+            this.Controls.Add(this.txtPrice);
+            this.Controls.Add(this.find);
+            this.Controls.Add(this.demPhai);
+            this.Controls.Add(this.demTrai);
             this.Controls.Add(this.demLa);
             this.Controls.Add(this.btnHienThiTheoGia);
             this.Controls.Add(this.btnDoCaoCay);
@@ -114,6 +159,7 @@ namespace DO_AN
             this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -125,6 +171,10 @@ namespace DO_AN
         private System.Windows.Forms.Button btnDoCaoCay;
         private System.Windows.Forms.Button btnHienThiTheoGia;
         private System.Windows.Forms.Button demLa;
+        private System.Windows.Forms.Button demTrai;
+        private System.Windows.Forms.Button demPhai;
+        private System.Windows.Forms.Button find;
+        private System.Windows.Forms.TextBox txtPrice;
     }
 }
 

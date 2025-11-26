@@ -16,6 +16,7 @@ namespace DO_AN
         public int Year_of_manufacture { get; set; }
         public int Mileage { get; set; }
         public int Price { get; set; }
+
     }
 
 }
