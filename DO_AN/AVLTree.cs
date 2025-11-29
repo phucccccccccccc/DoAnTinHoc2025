@@ -68,7 +68,6 @@ namespace DO_AN
         {
             if (node == null)
                 return new NodeAVL(data);
-
             if (data.Id < node.Data.Id)
                 node.Left = Insert(node.Left, data);
             else if (data.Id > node.Data.Id)
@@ -79,7 +78,6 @@ namespace DO_AN
             node.Height = 1 + Math.Max(Height(node.Left), Height(node.Right));
             int balance = GetBalance(node);
 
-            
             if (balance > 1 && data.Id < node.Left.Data.Id)
                 return RotateRight(node);
 
@@ -185,12 +183,114 @@ namespace DO_AN
                 return 0;
             return 1 + demTongNode(node.Left) + demTongNode(node.Right);
         }
-        public string FindPosition(int id)
+
+        public NodeAVL Search(NodeAVL root, int id)
         {
+            if (root == null || root.Data.Id == id)
+                return root;
 
-
-            return " ";
+            if (id < root.Data.Id)
+                return Search(root.Left, id);
+            else
+                return Search(root.Right, id);
         }
+        public NodeAVL Delete(NodeAVL root, int id)
+        {
+            if (root == null) return root;
+
+            if (id < root.Data.Id)
+                root.Left = Delete(root.Left, id);
+            else if (id > root.Data.Id)
+                root.Right = Delete(root.Right, id);
+            else
+            {
+                if (root.Left == null || root.Right == null)
+                {
+                    NodeAVL temp = root.Left ?? root.Right;
+
+                    if (temp == null)
+                        return null; 
+                    else
+                        return temp; 
+                }
+                else
+                {
+                    NodeAVL temp = GetMinValueNode(root.Right);
+                    root.Data = temp.Data;
+                    root.Right = Delete(root.Right, temp.Data.Id);
+                }
+            }
+
+            root.Height = Math.Max(Height(root.Left), Height(root.Right)) + 1;
+
+            int balance = GetBalance(root);
+
+            if (balance > 1 && GetBalance(root.Left) >= 0)
+                return RotateRight(root);
+
+            if (balance > 1 && GetBalance(root.Left) < 0)
+            {
+                root.Left = RotateLeft(root.Left);
+                return RotateRight(root);
+            }
+
+            if (balance < -1 && GetBalance(root.Right) <= 0)
+                return RotateLeft(root);
+
+            if (balance < -1 && GetBalance(root.Right) > 0)
+            {
+                root.Right = RotateRight(root.Right);
+                return RotateLeft(root);
+            }
+
+            return root;
+        }
+
+        private NodeAVL GetMinValueNode(NodeAVL node)
+        {
+            NodeAVL current = node;
+            while (current.Left != null)
+                current = current.Left;
+            return current;
+        }
+        public bool UpdateNode(NodeAVL root, Xe newData)
+        {
+            var node = Search(root, newData.Id);
+            if (node == null) return false;
+
+            node.Data.Manufacturer = newData.Manufacturer;
+            node.Data.Model = newData.Model;
+            node.Data.Engine_size = newData.Engine_size;
+            node.Data.Fuel_type = newData.Fuel_type;
+            node.Data.Year_of_manufacture = newData.Year_of_manufacture;
+            node.Data.Mileage = newData.Mileage;
+            node.Data.Price = newData.Price;
+
+            return true;
+        }
+        public List<Xe> GetNodesAtSpecificLevel(int targetLevel)
+        {
+            List<Xe> ds = new List<Xe>();
+            GetNodesAtLevelRecursive(Root, 1, targetLevel, ds);
+            return ds;
+        }
+
+        private void GetNodesAtLevelRecursive(NodeAVL node, int currentLevel, int targetLevel, List<Xe> ds)
+        {
+            if (node == null) return;
+
+            if (currentLevel == targetLevel)
+            {
+                ds.Add(node.Data);
+            }
+            else
+            {
+                GetNodesAtLevelRecursive(node.Left, currentLevel + 1, targetLevel, ds);
+                GetNodesAtLevelRecursive(node.Right, currentLevel + 1, targetLevel, ds);
+            }
+        }
+       
+
     }
 }
 
