@@ -339,7 +339,6 @@ namespace DO_AN
                     return;
                 }
 
-                // ==== Nếu không chọn gì ====
                 MessageBox.Show("Vui lòng chọn dòng cần xóa!");
             }
             catch (Exception ex)
@@ -469,7 +468,7 @@ namespace DO_AN
             if ((root.Left == null && root.Right != null) ||
                 (root.Left != null && root.Right == null))
             {
-                list.Add(root.Data);  // root.Data là Xe → OK
+                list.Add(root.Data); 
             }
 
             GetNodesOneChild(root.Left, list);
@@ -499,19 +498,14 @@ namespace DO_AN
         {
             try
             {
-                // Tổng số xe trong danh sách chính
                 int tongXeChinh = dsXe.Count;
 
-                // Tổng số xe trong danh sách trùng
                 int tongXeTrung = dsTrung.Count;
 
-                // Tổng giá trị xe trong danh sách chính
                 int tongGiaXeChinh = dsXe.Sum(x => x.Price);
 
-                // Tổng giá trị xe trong danh sách trùng (nếu cần)
                 int tongGiaXeTrung = dsTrung.Sum(x => x.Price);
 
-                // Hiển thị kết quả
                 string thongKe = $"Tổng số node: {tongXeChinh}\n" +
                                  $"Tổng số node: {tongXeTrung}\n";
                 MessageBox.Show(thongKe, "Thống kê node", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -526,14 +520,13 @@ namespace DO_AN
         {
             try
             {
-                // Kiểm tra input
                 if (!int.TryParse(txtTim.Text.Trim(), out int price))
                 {
                     MessageBox.Show("Vui lòng nhập giá hợp lệ!");
                     return;
                 }
 
-                int soLanTrung = dsTrung.Count(x => x.Price == price); // số xe trong dsTrung
+                int soLanTrung = dsTrung.Count(x => x.Price == price); 
 
                 if (soLanTrung == 0)
                 {
