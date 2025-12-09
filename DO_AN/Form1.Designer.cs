@@ -38,7 +38,7 @@ namespace DO_AN
             this.demTrai = new System.Windows.Forms.Button();
             this.demPhai = new System.Windows.Forms.Button();
             this.find = new System.Windows.Forms.Button();
-            this.txt = new System.Windows.Forms.TextBox();
+            this.txtFind = new System.Windows.Forms.TextBox();
             this.btnThem = new System.Windows.Forms.Button();
             this.txtHang = new System.Windows.Forms.TextBox();
             this.txtNhienLieu = new System.Windows.Forms.TextBox();
@@ -154,12 +154,12 @@ namespace DO_AN
             this.find.UseVisualStyleBackColor = true;
             this.find.Click += new System.EventHandler(this.find_Click);
             // 
-            // txt
+            // txtFind
             // 
-            this.txt.Location = new System.Drawing.Point(342, 20);
-            this.txt.Name = "txt";
-            this.txt.Size = new System.Drawing.Size(100, 22);
-            this.txt.TabIndex = 10;
+            this.txtFind.Location = new System.Drawing.Point(342, 20);
+            this.txtFind.Name = "txtFind";
+            this.txtFind.Size = new System.Drawing.Size(100, 22);
+            this.txtFind.TabIndex = 10;
             // 
             // btnThem
             // 
@@ -358,7 +358,7 @@ namespace DO_AN
             this.Controls.Add(this.txtNhienLieu);
             this.Controls.Add(this.txtHang);
             this.Controls.Add(this.btnThem);
-            this.Controls.Add(this.txt);
+            this.Controls.Add(this.txtFind);
             this.Controls.Add(this.find);
             this.Controls.Add(this.demPhai);
             this.Controls.Add(this.demTrai);
@@ -389,7 +389,7 @@ namespace DO_AN
         private System.Windows.Forms.Button demTrai;
         private System.Windows.Forms.Button demPhai;
         private System.Windows.Forms.Button find;
-        private System.Windows.Forms.TextBox txt;
+        private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.TextBox txtHang;
         private System.Windows.Forms.TextBox txtNhienLieu;

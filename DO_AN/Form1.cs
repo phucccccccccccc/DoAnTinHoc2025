@@ -155,26 +155,31 @@ namespace DO_AN
 
         private void find_Click(object sender, EventArgs e)
         {
-            if (!int.TryParse(txtId.Text.Trim(), out int id))
+            string raw = txtFind.Text.Trim();
+
+            // Lọc chỉ lấy chữ số 0–9
+            raw = System.Text.RegularExpressions.Regex.Replace(raw, "[^0-9]", "");
+
+            if (!int.TryParse(raw, out int price))
             {
-                MessageBox.Show("Vui lòng nhập ID hợp lệ để tìm!");
+                MessageBox.Show("Vui lòng nhập giá hợp lệ để tìm!");
                 return;
             }
 
-            NodeAVL node = avl.Search(avl.Root, id);
+            List<Xe> ds = avl.SearchByPrice(avl.Root, price);
 
-            if (node != null)
+            if (ds.Count > 0)
             {
-                List<Xe> ds = new List<Xe> { node.Data };  // Lấy dữ liệu Xe từ node
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = ds;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-                MessageBox.Show($"Đã tìm thấy xe có ID: {id}");
+                MessageBox.Show($"Tìm thấy {ds.Count} xe có giá = {price}");
             }
             else
             {
-                MessageBox.Show($"Không tìm thấy xe có ID: {id}");
+                dataGridView1.DataSource = null;  // Clear bảng
+                MessageBox.Show("Không tìm thấy xe nào theo giá này!");
             }
 
         }

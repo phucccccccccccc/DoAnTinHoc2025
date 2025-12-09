@@ -194,6 +194,25 @@ namespace DO_AN
             else
                 return Search(root.Right, id);
         }
+        public List<Xe> SearchByPrice(NodeAVL root, int price)
+        {
+            List<Xe> result = new List<Xe>();
+            SearchPriceHelper(root, price, result);
+            return result;
+        }
+
+        private void SearchPriceHelper(NodeAVL node, int price, List<Xe> list)
+        {
+            if (node == null) return;
+
+            // Nếu giá khớp → thêm vào list
+            if (node.Data.Price == price)
+                list.Add(node.Data);
+
+            // Duyệt tiếp
+            SearchPriceHelper(node.Left, price, list);
+            SearchPriceHelper(node.Right, price, list);
+        }
         public NodeAVL Delete(NodeAVL root, int id)
         {
             if (root == null) return root;
