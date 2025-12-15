@@ -1,6 +1,5 @@
 id,Manufacturer,Model,Engine_size,Fuel_type,Year_of_manufacture,Mileage,Price
 1,Ford,Fiesta,1,Petrol,2002,127300,3074
-2,Porsche,718 Cayman,4,Petrol,2016,57850,49704
 3,Ford,Mondeo,1.6,Diesel,2014,39190,24072
 4,Toyota,RAV4,1.8,Hybrid,1988,210814,1705
 5,VW,Polo,1,Petrol,2006,127869,4101
@@ -118,3 +117,4 @@ id,Manufacturer,Model,Engine_size,Fuel_type,Year_of_manufacture,Mileage,Price
 117,Porsche,911,3.5,Petrol,2003,107705,24378
 118,VW,Golf,1.8,Diesel,2014,28530,23034
 119,VW,Passat,1.6,Diesel,2015,57933,24207
+4333,VW,Polo,1.4,Petrol,1990,261526,5222
